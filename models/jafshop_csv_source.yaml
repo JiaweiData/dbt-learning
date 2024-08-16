@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: jaf_csv  # required
+    schema: jaf_csv
+    tables:
+    - name: customers
+      identifer: raw_customers
+      description:
+        test desc
+      meta:
+        contans_pii: true
+      config:
+          external_location: "read_csv('./jaffle-data/raw_customers.csv', names=['id', 'name'])"
+          formatter: oldstyle
+      columns:
+        - name: id
+          data_tests:
+            - unique
+    - name: stores
+      identifer: raw_stores
+      config:
+          external_location: "read_csv('./jaffle-data/raw_stores.csv', names=['id','name','opened_at','tax_rate'])"
+          formatter: oldstyle

@@ -1,0 +1,18 @@
+
+version: 2
+
+models:
+  - name: customers
+    description: "customers table"
+    columns:
+      - name: customer_id
+        data_type: string
+        description: "The primary key for this table"
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        data_type: string
+        description: "The customer name"
+        data_tests:
+          - not_null

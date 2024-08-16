@@ -164,5 +164,8 @@ cython_debug/
 # temp data
 jaffle-data/
 
-# dbt log
+# dbt
+target/
+dbt_packages/
 logs/
+*.duckdb

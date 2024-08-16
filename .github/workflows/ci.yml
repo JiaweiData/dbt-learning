@@ -1,0 +1,25 @@
+name: ci
+on:
+  push:
+    branches:
+      - docs
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # if:
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install -r requirements.txt
+      - run: dbt docs generate
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: gh-pages
+          build_dir: target
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
