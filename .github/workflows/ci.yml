@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install -r requirements.txt
-      - run: dbt docs generate -profiles-dir .github/
+      - run: dbt docs generate --profiles-dir .github/
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: gh-pages
