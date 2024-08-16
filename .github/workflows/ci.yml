@@ -10,7 +10,7 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # if:
+    if: startsWith(github.event.head_commit.message, 'bump:')
     steps:
       - uses: actions/checkout@v4
 
