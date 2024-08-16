@@ -1,6 +1,6 @@
 dbt_learning:
   outputs:
-    docs:
+    default:
       type: duckdb
       path: dev.duckdb
       threads: 1
