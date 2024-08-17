@@ -16,3 +16,32 @@ models:
         description: "The customer name"
         data_tests:
           - not_null
+  - name: stores
+    description: "门店"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: store_id
+        data_type: varchar
+        description: "门店 id"
+        data_tests:
+          - unique
+          - not_null
+      - name: store_name
+        data_type: varchar
+        description: "门店名称"
+      - name: store_manager_id
+        data_type: varchar
+        description: "门店管理员 id"
+      - name: store_manager_name
+        data_type: varchar
+        description: "门店管理员名称"
+      - name: opened_at
+        data_type: datetime
+        description: " 开店时间"
+      - name: tax_rate
+        data_type: decimal(12,4)
+        description: "门店税率"
+        data_tests:
+          - not_null

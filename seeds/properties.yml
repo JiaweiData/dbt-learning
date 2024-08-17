@@ -1,0 +1,23 @@
+seeds:
+  - name: store_manager
+    description: "{{ doc('store_manager') }}"
+    config:
+      contract: # 配置无效
+        enforced: true
+    columns:
+      - name: store_id
+        data_type: varchar
+        description: 门店 id
+        quote: false
+        data_tests:
+          - unique
+          - not_null
+        # tags
+        # meta
+      - name: user_id
+        data_type: varchar
+        description: 用户 id
+        quote: false
+        data_tests:
+          - unique
+          - not_null

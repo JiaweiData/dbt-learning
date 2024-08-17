@@ -5,7 +5,7 @@ sql_file_exts = .sql
 dialect = duckdb
 
 # One of [raw|jinja|python|placeholder]
-templater = jinja
+templater = dbt
 
 rules =
     aliasing.table,
