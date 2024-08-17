@@ -13,7 +13,15 @@ jobs:
     if: startsWith(github.event.head_commit.message, 'bump:')
     steps:
       - uses: actions/checkout@v4
+      - name: Get current version
+        id: get_version
+        run: |
+          version=$(grep -Po '(?<=version = ")[^"]*' .cz.toml)
+          echo "VERSION=${version}" >> $GITHUB_ENV
 
+      - name: Replace %version% with current version
+        run: |
+          sed -i "s/%version%/${{ env.VERSION }}/g" docs/overview.md
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
